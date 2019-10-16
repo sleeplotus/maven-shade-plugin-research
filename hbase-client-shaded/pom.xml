@@ -57,7 +57,7 @@
                             <relocations>
                                 <relocation>
                                     <pattern>com.google.common</pattern>
-                                    <shadedPattern>com.google.common.shaded</shadedPattern>
+                                    <shadedPattern>com.shaded.google.common</shadedPattern>
                                 </relocation>
                             </relocations>
                         </configuration>
