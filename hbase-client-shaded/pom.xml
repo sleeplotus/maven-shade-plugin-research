@@ -13,9 +13,15 @@
 
     <properties>
         <hbase.version>1.0.2</hbase.version>
+        <guava.version>12.0.1</guava.version>
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.apache.hbase</groupId>
             <artifactId>hbase-client</artifactId>
@@ -40,11 +46,14 @@
                         <goals>
                             <goal>shade</goal>
                         </goals>
+
                         <configuration>
+                            <createDependencyReducedPom>false</createDependencyReducedPom>
                             <artifactSet>
                                 <includes>
                                     <include>org.apache.hbase:hbase-client</include>
                                     <include>org.apache.hbase:hbase-server</include>
+                                    <include>org.apache.hbase:hbase-annotations</include>
                                     <include>org.apache.hbase:hbase-common</include>
                                     <include>org.apache.hbase:hbase-protocol</include>
                                     <include>org.apache.hbase:hbase-hadoop2-compat</include>
