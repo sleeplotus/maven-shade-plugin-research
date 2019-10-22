@@ -11,6 +11,8 @@
     <modules>
         <module>hbase-client-shaded</module>
         <module>test-shaded</module>
+        <module>assembly-uber</module>
+        <module>assembly-independent</module>
     </modules>
 
     <properties>
@@ -38,5 +40,15 @@
                 </configuration>
             </plugin>
         </plugins>
+
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <version>3.1.1</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
 </project>
