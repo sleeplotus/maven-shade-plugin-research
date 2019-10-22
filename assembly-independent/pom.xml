@@ -11,5 +11,38 @@
 
     <artifactId>assembly-independent</artifactId>
 
-
+    <build>
+        <plugins>
+            <plugin>
+                <!-- 配置插件坐标 -->
+                <artifactId>maven-assembly-plugin</artifactId>
+                <!-- 配置执行器 -->
+                <executions>
+                    <execution>
+                        <!-- 名称随意，最好与描述文件中的ID一致，不一致也无所谓，只要文件路径写对也能找到 -->
+                        <id>assembly-independent</id>
+                        <!-- 绑定到Package生命周期阶段上，该标签决定了该插件的作用 -->
+                        <phase>package</phase>
+                        <goals>
+                            <!-- 只运行一次 -->
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <tarLongFileMode>gnu</tarLongFileMode>
+                            <descriptors>
+                                <!-- 配置描述文件路径，一般使用相对目录即可 -->
+                                <descriptor>src/main/assemblies/assembly.xml</descriptor>
+                            </descriptors>
+                            <!-- Assembly插件打包之后的输出目录 -->
+                            <outputDirectory>target</outputDirectory>
+                            <!-- 自定义输出包的名称 -->
+                            <finalName>assembly-independent</finalName>
+                            <!-- 该标签默认为true，指定为false后包名将不会自动带上描述文件的ID -->
+                            <appendAssemblyId>true</appendAssemblyId>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
